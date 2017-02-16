@@ -4,7 +4,8 @@
   "description": "Gateway for payment through http resouces.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node index.js"
   },
   "keywords": [
     "gateway",
@@ -15,5 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0"
   }
 }
