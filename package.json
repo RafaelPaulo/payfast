@@ -1,0 +1,19 @@
+{
+  "name": "payfast",
+  "version": "1.0.0",
+  "description": "Gateway for payment through http resouces.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gateway",
+    "payment",
+    "api"
+  ],
+  "author": "Rafael Paulo da Silva Queiroz <rafael-sq@hotmail.com> (https://github.com/rafaelpaulo)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
