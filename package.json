@@ -15,6 +15,7 @@
   "author": "Rafael Paulo da Silva Queiroz <rafael-sq@hotmail.com> (https://github.com/rafaelpaulo)",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.16.1",
     "consign": "^0.1.2",
     "express": "^4.14.1"
   },
