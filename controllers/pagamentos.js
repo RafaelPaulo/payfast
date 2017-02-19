@@ -6,7 +6,12 @@ module.exports = (app) => {
 		})
 		.post((req, res) => {
 			const json = req.body
-			console.log(json)
-			res.status(201).send(json)
+			const connection = app.persistence.connectionFactory()
+			const paymentDAO = new app.persistence.PaymentDAO(connection)
+
+			paymentDAO.save(json, function(error, result) {
+				console.log('Payment Created')
+				res.json(json)
+			})
 		})
 }
