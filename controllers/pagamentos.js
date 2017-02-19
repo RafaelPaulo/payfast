@@ -6,7 +6,7 @@ module.exports = (app) => {
 		})
 		.post((req, res) => {
 			const json = req.body
-			console.log(json);
+			console.log(json)
 			res.status(201).send(json)
 		})
 }
