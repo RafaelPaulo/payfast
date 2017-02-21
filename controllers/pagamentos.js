@@ -29,6 +29,8 @@ module.exports = (app) => {
 					return res.status(412).send({msg: error})
 				}
 
+				res.location(`/payments/${result.insertId}`)
+
 				console.log('Payment Created')
 				res.status(201).json(json)
 			})
