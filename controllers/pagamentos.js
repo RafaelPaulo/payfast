@@ -35,4 +35,24 @@ module.exports = (app) => {
 				res.status(201).json(json)
 			})
 		})
+
+	app.route('/payments/:id')
+		.put((req, res) => {
+			const id = req.params.id
+			const payment = {}
+			const connection = app.persistence.connectionFactory()
+			const paymentDAO = new app.persistence.PaymentDAO(connection)
+
+			payment.status = 'PAID'
+			payment.id = id
+
+			paymentDAO.update(payment, function(error, result) {
+				if(error){
+					console.log('Error trying to update: '+ error);
+					return res.status(500).send({msg: error})
+				}
+
+				return res.status(200).send(result)
+			})
+		})
 }
