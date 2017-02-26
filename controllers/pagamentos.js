@@ -43,16 +43,33 @@ module.exports = (app) => {
 			const connection = app.persistence.connectionFactory()
 			const paymentDAO = new app.persistence.PaymentDAO(connection)
 
-			payment.status = 'PAID'
+			payment.status = 'CONFIRMED'
 			payment.id = id
 
 			paymentDAO.update(payment, function(error, result) {
 				if(error){
-					console.log('Error trying to update: '+ error);
 					return res.status(500).send({msg: error})
 				}
 
+				console.log('Payment confirmed.');
 				return res.status(200).send(result)
+			})
+		})
+		.delete((req, res) => {
+			const id = req.params.id
+			const payment = {}
+			const connection = app.persistence.connectionFactory()
+			const paymentDAO = new app.persistence.PaymentDAO(connection)
+
+			payment.status = 'CANCELED'
+			payment.id = id
+
+			paymentDAO.update(payment, function(error, result) {
+				if(error){
+					return res.status(500).send({msg: error})
+				}
+				console.log('Payment canceled.');
+				return res.status(204).send(result)
 			})
 		})
 }
