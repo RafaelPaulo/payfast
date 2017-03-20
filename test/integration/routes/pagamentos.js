@@ -4,12 +4,12 @@ describe('Payment Routes', () => {
         it('Should return an "Hello World"', (done) => {
             request
                 .get('/payments')
+				.expect(200)
                 .end((err, res) => {
-                    // expect(res.statusCode).to.be.equal(200);
-                    // expect(res.body).to.be.equal('Hello World')
+                    expect(res.statusCode).to.be.equal(200);
+                    expect(res.text).to.be.equal('Hello World')
 
-                    // done(err)
-                    done(res)
+                    done(err)
                 })
         })
     })

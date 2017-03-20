@@ -5,7 +5,6 @@ import expressValidator from 'express-validator'
 
 
 module.exports = () => {
-
 	const app = express()
 
 	app.set('port', process.env.PORT || 3000)
@@ -14,7 +13,7 @@ module.exports = () => {
 	app.use(bodyParser.urlencoded({extended: true}))
 	app.use(expressValidator())
 
-	consign()
+	consign({ verbose: false})
 		.include('controllers')
 		.then('persistence')
 		.into(app)

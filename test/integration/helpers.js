@@ -3,5 +3,5 @@ import chai from 'chai'
 import app from '../../config/custom-express'
 
 global.app = app;
-global.request = supertest(app);
+global.request = supertest(app());
 global.expect = chai.expect;
